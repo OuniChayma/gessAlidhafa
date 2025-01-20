@@ -1,0 +1,117 @@
+<app-nav-bar class="no-print"></app-nav-bar>
+<div class="container pompiste-main">
+    <!--debut btn to modat ajouter pompiste-->
+    <button type="button" class="btn btn-primary float-start no-print"  data-bs-toggle="modal" data-bs-target="#ajouterPompiste">اضافة</button>
+    <!--debut btn to modat ajouter pompiste-->
+    <!--debut imprimer le tableau pompiste-->
+    <button type="button" class="btn btn-primary float-end no-print" (click)="print()">طباعة</button>
+    <!--fin imprimer le tableau pompiste-->
+    <!--debut table pompiste-->
+    <table class="table yes-print">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">الاسم و اللقب</th>
+            <th scope="col">تاريخ التكليف</th>
+            <th scope="col">رقم بطاقة التعريف</th>
+            <th scope="col">صفة المهمة</th>
+            <th scope="col" class="no-print"></th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr>
+            <th scope="row">1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="no-print">
+                <a href="#" class="text-primary m-1"><i class="bi bi-eye-fill"></i></a> 
+                <a href="#" class="text-success m-1"><i class="bi bi-pencil-square"></i></a>
+                <a href="#" class="text-danger m-1"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--fin table pompiste-->
+
+    <!--debut modal ajout pompiste-->
+    <div class="modal fade modal-xl" id="ajouterPompiste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">اضافة عون تنفيذ </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="name" class="form-label">اسم و اللقب</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="dateDeNaisence" class="form-label">تاريخ الميلاد</label>
+                                <input type="date" class="form-control" id="dateDeNaisence">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="CIN" class="form-label">رقم بطاقة التعريف</label>
+                                <input type="text" class="form-control" id="CIN">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="dateDeCIN" class="form-label">بتاريخ </label>
+                                <input type="date" class="form-control" id="dateDeCIN">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="NatureRole" class="form-label">صفة المهمة </label>
+                            <select class="form-select" id="NatureRole">
+                                <option selected> مقابل منحة شهرية</option>
+                                <option value="1"> مقابل نسبة من المداخيل</option>
+                                <option value="2">من دون مقابل</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="adress" class="form-label">عنوان</label>
+                                <input type="text" class="form-control" id="adress">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="numTel" class="form-label">رقم الهاتف</label>
+                                <input type="text" class="form-control" id="numTel">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="mail" class="form-label">بريد الالكتروني </label>
+                            <input type="email" class="form-control" id="mail">
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="mp" class="form-label">كلمة السر</label>
+                                <input type="text" class="form-control" id="mp">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="vMp" class="form-label">أعد إدخال كلمة السر</label>
+                                <input type="text" class="form-control" id="vMp">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contrat" class="form-label"> عقد العمل   </label>
+                            <input type="file" class="form-control" id="contrat">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-primary">اضافة</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--fin model-->
+</div>
+

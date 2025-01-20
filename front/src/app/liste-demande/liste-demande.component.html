@@ -1,0 +1,73 @@
+<app-nav-bar class="no-print"></app-nav-bar>
+<div class="container listeDemand-main">
+    <!--debut btn to modal liste demande -->
+        <button type="button" class="btn btn-primary float-start no-print"  data-bs-toggle="modal" data-bs-target="#listeDemande">قائمة مطالب لانخراط</button>
+    <!--debut btn to modat liste demande-->
+    <!--debut imprimer le tableau liste Demand-->
+    <button type="button" class="btn btn-primary float-end no-print" (click)="print()">طباعة</button>
+    <!--fin imprimer le tableau liste Demand-->
+    <!--debut table liste Demand-->
+    <table class="table yes-print">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">الاسم و اللقب</th>
+            <th scope="col">تاريخ االنخراط </th>
+            <th scope="col">رقم ب.ت.و</th>
+            <th scope="col" class="no-print"></th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr>
+            <th scope="row">1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="no-print">
+                <a href="#" class="text-primary m-1"><i class="bi bi-eye-fill"></i></a> 
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--fin table listeDemand-->
+    <!--debut modal liste demande-->
+    <div class="modal fade modal-xl" id="listeDemande" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">مطالب الانخراط</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">الاسم و اللقب</th>
+                        <th scope="col">تاريخ االنخراط </th>
+                        <th scope="col">رقم ب.ت.و</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" class="text-primary m-1"><i class="bi bi-eye-fill"></i></a> 
+                            <a href="#" class="text-success m-1"><i class="bi bi-check-circle-fill"></i></a> 
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--fin modal liste demande-->
+</div>

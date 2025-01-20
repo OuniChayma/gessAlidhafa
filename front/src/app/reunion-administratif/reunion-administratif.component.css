@@ -1,0 +1,17 @@
+.renion-administratif-main{
+    margin-top: 8%;
+    direction: rtl; 
+    text-align: right;
+}
+
+@media screen and (max-width: 700px) {
+    .pompiste-main{
+        margin-top: 16%
+    }
+    th,td{
+        font-size: 9px;
+    }
+    button{
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,115 @@
+<app-nav-bar class="no-print"></app-nav-bar>
+<div class="container dette-benifique-main">
+    <!--debut titre-->
+    <h4 class="text-center no-print">ديون المجمع نحو المزودين</h4>
+    <!--fin titre-->
+    <div class="no-print">
+        <form>
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="date" class="form-control m-3" id="dateD">
+                </div>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control m-3" id="dateF">
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--debut btn to modat ajouter dette gess-->
+    <button type="button" class="btn btn-primary float-start no-print"  data-bs-toggle="modal" data-bs-target="#ajouterDetteGess">اضافة</button>
+    <!--fin btn to modat ajouter dette gess-->
+    <!--debut imprimer le tableau de dette gess-->
+    <button type="button" class="btn btn-primary float-end no-print" (click)="print()">طباعة</button>
+    <!--fin imprimer le tableau de dette gess-->
+    <!--debut table dette gess-->
+    <table class="table yes-print">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">الاسم المنتفع</th>
+            <th scope="col">رقم الفاتورة</th>
+            <th scope="col">المبلغ</th>
+            <th scope="col">تاريخ الخلاص</th>
+            <th scope="col">ملاحضة</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row" colspan="6" class="text-center"> ديون المجمع نحو المزودين</th>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="6" class="text-center"> الديون المتعلة الانشطة الاخرى</th>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <!--fin table gess-->
+
+    <!--debut modal ajout dette gess-->
+    <div class="modal fade modal-xl" id="ajouterDetteGess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">اضافة دين للمجمع نحو المزود </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="NatureRole" class="form-label">نوع</label>
+                            <select class="form-select" id="NatureRole">
+                                <option selected> الديون المتعلة باستغلال المياه</option>
+                                <option value="1"> الديون المتعلة الانشطة الاخرى</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">اسم و اللقب</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="numFacture" class="form-label">رقم الفتورة</label>
+                                <input type="text" class="form-control" id="numFacture">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="mantant" class="form-label">مبلغ</label>
+                                <input type="text" class="form-control" id="mantant">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="dateFactue" class="form-label">تاريخ الخلاص</label>
+                                <input type="date" class="form-control" id="dateFactue">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="note" class="form-label">ملاحضة</label>
+                                <input type="text" class="form-control" id="note">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-primary">اضافة</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--fin model-->
+</div>
+

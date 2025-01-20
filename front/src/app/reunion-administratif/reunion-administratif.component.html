@@ -1,0 +1,67 @@
+<app-nav-bar></app-nav-bar>
+<div class="container renion-administratif-main">
+    <!--debut btn to modat ajouter renion administratif-->
+    <button type="button" class="btn btn-primary float-start m-1"  data-bs-toggle="modal" data-bs-target="#ajouterRenionAdministratif">اضافة</button>
+    <!--debut btn to modat ajouter renion administratif-->
+    <!--debut imprimer le tableau renion administratif-->
+    <a class="btn btn-primary float-start m-1" href="محضر-جلسة-أول-اجتماع-مجلس-الادارة.pdf" download="محضر-جلسة-أول-اجتماع-مجلس-الادارة">طباعة</a>
+    <!--fin imprimer le tableau renion administratif-->
+    <!--debut table renion administratif-->
+    <table class="table text-center">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">تفاصيل</th>
+            <th scope="col">تاريخ </th>
+            <th scope="col" class="no-print"></th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr>
+            <th scope="row">1</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="no-print">
+                <a href="#" class="text-primary m-1"><i class="bi bi-eye-fill"></i></a> 
+                <a href="#" class="text-success m-1"><i class="bi bi-pencil-square"></i></a>
+                <a href="#" class="text-danger m-1"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--fin table renion administratif-->
+
+    <!--debut modal ajout renion administratif-->
+    <div class="modal fade modal-xl" id="ajouterRenionAdministratif" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">اضافة محاضر اجتماعات مجلس الدارة </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="note" class="form-label">تفاصيل</label>
+                                <input type="text" class="form-control" id="note">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="doc" class="form-label">ملف</label>
+                                <input type="file" class="form-control" id="doc">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-primary">اضافة</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--fin model-->
+</div>
+
