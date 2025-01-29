@@ -9,6 +9,7 @@ const benifiqueAepRouter = require('./router/benifiqueAepRouter.js');
 const Membre = require('./router/membreRouter.js');
 const detteBenifique = require('./router/detteBenifiqueRouter.js');
 const DetteGess = require('./router/detteGessRouter.js');
+const uploadFileRouter = require('./router/uploadFileRouter.js');
 
 const app = express();
 
@@ -20,6 +21,9 @@ app.use(cors());
 
 //json
 app.use(express.json());
+
+//upload files public/uploads
+app.use('/upload', uploadFileRouter);
 
 //autentification router
 app.use('/login', autentificationRouter);
