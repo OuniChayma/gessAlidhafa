@@ -1,12 +1,17 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 text-center m-auto">
-            <form method="post" action="index.php">
+            <form (submit)="onSubmit()">
+                @if (message) {
+                    <div class="alert alert-danger form-control" role="alert">
+                       {{message}}
+                    </div>
+                }
                 <div class="form-group">
-                    <input type="email" class="form-control mb-3 mt-3 text-end" placeholder="البريد الالكتروني" require>
+                    <input type="email" [(ngModel)]="login.email" name="email" class="form-control mb-3 mt-3 text-end" placeholder="البريد الالكتروني" require>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control mb-3 text-end" placeholder="كلمة العبور" require>
+                    <input type="password" [(ngModel)]="login.password" name="password" class="form-control mb-3 text-end" placeholder="كلمة العبور" require>
                 </div>
                 <button type="submit" class="btn btn-success form-control">تسجيل دخول</button>
             </form>
