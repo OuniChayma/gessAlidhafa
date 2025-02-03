@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path'); 
 
 const PompisteRout = require('./router/PompisteRouter.js');
 const autentificationRouter = require('./router/autentificationRouter.js');
@@ -47,6 +48,9 @@ app.use('/aep/dettebenifique',detteBenifique);
 // dette gess router
 app.use('/pi/dettegess' , DetteGess)
 app.use('/aep/dettegess' , DetteGess)
+
+//files get
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 const PORT = 3000;
 app.listen(PORT,()=>{

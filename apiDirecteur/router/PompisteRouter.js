@@ -1,14 +1,25 @@
 const express = require('express')
 const router = express.Router()
 
-const {verifyToken} = require('../verifyToken');
+const {verifyToken , getIdGessFromToken} = require('../verifyToken');
 const Pompiste = require('../model/pompisteModel');
 
 //get all pompiste
 router.get('/' ,verifyToken, async(req,res)=>{
     try{
         const idGess = getIdGessFromToken(req.headers['token']);
-        const pompistes = await Pompiste.find({ type: 1, active: 1 , idGess : idGess}); 
+        const pompistes = await Pompiste.find({ type: 1, active: 1 , idGess : idGess});
+        res.status(200).send(pompistes); 
+    }catch(err){
+        console.log(err);
+        res.status(500).send({ message: 'Server error while fetching pompistes' });
+    }
+})
+// get one pompiste
+router.get('/:id' ,verifyToken, async(req,res)=>{
+    try{
+        const idpompiste = req.params.id
+        const pompistes = await Pompiste.find({ _id: idpompiste});
         res.status(200).send(pompistes); 
     }catch(err){
         console.log(err);
@@ -19,6 +30,7 @@ router.get('/' ,verifyToken, async(req,res)=>{
 //add pompiste
 router.post('/ajouter',verifyToken,async(req,res)=>{
     try{
+        
         const idGess = getIdGessFromToken(req.headers['token']);
         const newPompiste = new Pompiste();
         newPompiste.idGess=idGess ;
@@ -34,12 +46,11 @@ router.post('/ajouter',verifyToken,async(req,res)=>{
         newPompiste.email=req.body.email ;
         newPompiste.motpass=req.body.motpass ;
         newPompiste.contrat= req.body.contrat;
-        newPompiste.type=req.body.type ;
-        newPompiste.active=req.body.active ;
+        newPompiste.type=1 ;
+        newPompiste.active=1 ;
 
         const savePompiste = await newPompiste.save();
         res.status(200).send(savePompiste);
-
     }catch(err){
         console.log(err);
         res.status(400).send({"message" : "pompiste non cree !"})

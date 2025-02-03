@@ -1,5 +1,15 @@
 <app-nav-bar class="no-print"></app-nav-bar>
 <div class="container pompiste-main">
+    @if(errorMessage){
+        <div class="alert alert-danger text-center no-print" role="alert">
+            {{errorMessage}}
+        </div>
+    }
+    @if(succesMessage){
+        <div class="alert alert-success text-center no-print" role="alert">
+            {{succesMessage}}
+        </div>
+    }
     <!--debut btn to modat ajouter pompiste-->
     <button type="button" class="btn btn-primary float-start no-print"  data-bs-toggle="modal" data-bs-target="#ajouterPompiste">اضافة</button>
     <!--debut btn to modat ajouter pompiste-->
@@ -19,24 +29,117 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr>
-            <th scope="row">1</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="no-print">
-                <a href="#" class="text-primary m-1"><i class="bi bi-eye-fill"></i></a> 
-                <a href="#" class="text-success m-1"><i class="bi bi-pencil-square"></i></a>
-                <a href="#" class="text-danger m-1"><i class="bi bi-trash3-fill"></i></a>
-            </td>
-        </tr>
+            <tr *ngFor="let pompiste of pompistes; let i = index">
+                <th scope="row">{{ i + 1 }}</th> <!-- عرض الرقم التسلسلي -->
+                <td>{{ pompiste.name }}</td>
+                <td>{{ pompiste.createdAt }}</td>
+                <td>{{ pompiste.CIN }}</td>
+                <td>{{ pompiste.travail }}</td>
+                <td class="no-print">
+                    <a href="localhost:3000/public{{ pompiste.contrat }}" target="_blank" class="text-primary m-1"><i class="bi bi-eye-fill"></i></a> 
+                    <a (click)="oppenmodal(pompiste._id)" class="text-success m-1" data-bs-toggle="modal" data-bs-target="#modifierPompiste"><i class="bi bi-pencil-square"></i></a>
+                    <a (click)="DeletePompiste(pompiste._id)" class="text-danger m-1" ><i class="bi bi-trash3-fill"></i></a>
+                </td>
+            </tr>
         </tbody>
     </table>
     <!--fin table pompiste-->
 
     <!--debut modal ajout pompiste-->
     <div class="modal fade modal-xl" id="ajouterPompiste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form (submit)="uploadFile()">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">اضافة عون تنفيذ </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="name" class="form-label">اسم و اللقب</label>
+                                <input type="text"  [(ngModel)]="pompisteData.name" name="name" class="form-control" id="name">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="dateNaissance" class="form-label">تاريخ الميلاد</label>
+                                <input type="date" [(ngModel)]="pompisteData.dateNaissance" name="dateNaissance" class="form-control" id="dateNaissance">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="CIN" class="form-label">رقم بطاقة التعريف</label>
+                                <input type="text" [(ngModel)]="pompisteData.CIN" name="CIN" class="form-control" id="CIN">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="dateCIN" class="form-label">بتاريخ </label>
+                                <input type="date" [(ngModel)]="pompisteData.dateCIN" name="dateCIN" class="form-control" id="dateCIN">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="payement" class="form-label">صفة المهمة </label>
+                            <select class="form-select" [(ngModel)]="pompisteData.payement" name="payement" id="payement">
+                                <option selected> مقابل منحة شهرية</option>
+                                <option value="1"> مقابل نسبة من المداخيل</option>
+                                <option value="2">من دون مقابل</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="famille" class="form-label">الحالة العائلية</label>
+                                <input type="text" [(ngModel)]="pompisteData.famille" name="famille" class="form-control" id="famille">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="travail" class="form-label">المهنة</label>
+                                <select class="form-select" [(ngModel)]="pompisteData.travail" name="travail" id="travail">
+                                    <option selected> حارس نضام مائي</option>
+                                    <option value="1"> حارس شبكة</option>
+                                    <option value="2">موز ماء</option>
+                                </select>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="address" class="form-label">عنوان</label>
+                                <input type="text" [(ngModel)]="pompisteData.address" name="address" class="form-control" id="address">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="tel" class="form-label">رقم الهاتف</label>
+                                <input type="text" [(ngModel)]="pompisteData.tel" name="tel" class="form-control" id="tel">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">بريد الالكتروني </label>
+                            <input type="email" [(ngModel)]="pompisteData.email" name="email" class="form-control" id="email">
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="motpass" class="form-label">كلمة السر</label>
+                                <input type="text" [(ngModel)]="pompisteData.motpass" name="motpass" class="form-control" id="motpass">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="vMp" class="form-label">أعد إدخال كلمة السر</label>
+                                <input type="text" class="form-control" id="vMp">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contrat" class="form-label"> عقد العمل   </label>
+                            <input type="file" (change)="onFileSelected($event)" class="form-control" id="contrat" />                        
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
+                        <button type="submit" class="btn btn-primary">اضافة</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--fin model-->
+
+     <!--debut modal modifier pompiste-->
+     <div class="modal fade modal-xl" id="modifierPompiste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form>
@@ -48,26 +151,26 @@
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="name" class="form-label">اسم و اللقب</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text"  [(ngModel)]="modifPomdite.name" name="name" class="form-control" id="name">
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label for="dateDeNaisence" class="form-label">تاريخ الميلاد</label>
-                                <input type="date" class="form-control" id="dateDeNaisence">
+                                <label for="dateNaissance" class="form-label">تاريخ الميلاد</label>
+                                <input type="date" [(ngModel)]="modifPomdite.dateNaissance" name="dateNaissance" class="form-control" id="dateNaissance">
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-3 col-sm-6">
                                 <label for="CIN" class="form-label">رقم بطاقة التعريف</label>
-                                <input type="text" class="form-control" id="CIN">
+                                <input type="text" [(ngModel)]="modifPomdite.CIN" name="CIN" class="form-control" id="CIN">
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label for="dateDeCIN" class="form-label">بتاريخ </label>
-                                <input type="date" class="form-control" id="dateDeCIN">
+                                <label for="dateCIN" class="form-label">بتاريخ </label>
+                                <input type="date" [(ngModel)]="modifPomdite.dateCIN" name="dateCIN" class="form-control" id="dateCIN">
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="NatureRole" class="form-label">صفة المهمة </label>
-                            <select class="form-select" id="NatureRole">
+                            <label for="payement" class="form-label">صفة المهمة </label>
+                            <select class="form-select" [(ngModel)]="modifPomdite.payement" name="payement" id="payement">
                                 <option selected> مقابل منحة شهرية</option>
                                 <option value="1"> مقابل نسبة من المداخيل</option>
                                 <option value="2">من دون مقابل</option>
@@ -76,37 +179,47 @@
                         <hr>
                         <div class="row">
                             <div class="mb-3 col-sm-6">
-                                <label for="adress" class="form-label">عنوان</label>
-                                <input type="text" class="form-control" id="adress">
+                                <label for="famille" class="form-label">الحالة العائلية</label>
+                                <input type="text" [(ngModel)]="modifPomdite.famille" name="famille" class="form-control" id="famille">
                             </div>
                             <div class="mb-3 col-sm-6">
-                                <label for="numTel" class="form-label">رقم الهاتف</label>
-                                <input type="text" class="form-control" id="numTel">
+                                <label for="travail" class="form-label">المهنة</label>
+                                <select class="form-select" [(ngModel)]="modifPomdite.travail" name="travail" id="travail">
+                                    <option selected> حارس نضام مائي</option>
+                                    <option value="1"> حارس شبكة</option>
+                                    <option value="2">موز ماء</option>
+                                </select>                            
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="address" class="form-label">عنوان</label>
+                                <input type="text" [(ngModel)]="modifPomdite.address" name="address" class="form-control" id="address">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="tel" class="form-label">رقم الهاتف</label>
+                                <input type="text" [(ngModel)]="modifPomdite.tel" name="tel" class="form-control" id="tel">
                             </div>
                         </div>
                         <hr>
                         <div class="mb-3">
-                            <label for="mail" class="form-label">بريد الالكتروني </label>
-                            <input type="email" class="form-control" id="mail">
+                            <label for="email" class="form-label">بريد الالكتروني </label>
+                            <input type="email" [(ngModel)]="modifPomdite.email" name="email" class="form-control" id="email">
                         </div>
                         <div class="row">
                             <div class="mb-3 col-sm-6">
-                                <label for="mp" class="form-label">كلمة السر</label>
-                                <input type="text" class="form-control" id="mp">
+                                <label for="motpass" class="form-label">كلمة السر</label>
+                                <input type="text" [(ngModel)]="modifPomdite.motpass" name="motpass" class="form-control" id="motpass">
                             </div>
                             <div class="mb-3 col-sm-6">
                                 <label for="vMp" class="form-label">أعد إدخال كلمة السر</label>
                                 <input type="text" class="form-control" id="vMp">
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="contrat" class="form-label"> عقد العمل   </label>
-                            <input type="file" class="form-control" id="contrat">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
-                        <button type="submit" class="btn btn-primary">اضافة</button>
+                        <button type="submit" class="btn btn-primary">حفض</button>
                     </div>
                 </form>
             </div>

@@ -21,14 +21,12 @@ const verifyToken = (req, res, next) => {
 
 const getIdGessFromToken = (token) => {
     try {
-        const decoded = jwt.decode(token); 
-        if (decoded && decoded.idGess) {
-            return decoded.idGess;
-        } else {
-            throw new Error('idGess not found in token');
-        }
+        if (!token) throw new Error('Token is missing');
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        return decoded.existePompiste.idGess;
     } catch (err) {
-        console.error('Error decoding token:', err.message);
+        console.error('Error verifying token:', err.message);
         return null;
     }
 };
