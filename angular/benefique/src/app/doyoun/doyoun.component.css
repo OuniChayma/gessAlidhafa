@@ -1,0 +1,90 @@
+.water-debts-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background-color: #138808;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.debts-section {
+    margin: 20px 0;
+}
+
+.debts-section h3 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: white;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.total-debt-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.total-debt-card {
+    background-color: #98FF98;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 50%;
+}
+
+.total-debt-card h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.total-debt-card p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.total-debt-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .total-debt-button:hover {
+    background-color: #388e3c;
+  }

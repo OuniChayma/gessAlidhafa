@@ -1,0 +1,113 @@
+.container {
+    font-family: 'Arial', sans-serif;
+    padding: 30px;
+    background-color: #f4f7f6;
+    color: #333;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #2a9d8f;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .water-usage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .month {
+    width: 230px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  .month h3 {
+    color: #444;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .month h3 i {
+    color: #2a9d8f;
+    font-size: 1.2rem;
+  }
+  
+  .progress-container {
+    background-color: #e0e0e0;
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+  }
+  
+  .progress {
+    height: 100%;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .status {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #888;
+  }
+  
+  .summary {
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .total-usage {
+    font-size: 28px;
+    color: #2a9d8f;
+  }
+.image-container {
+    text-align: center;
+    margin-top: 500px; 
+  }
+  
+  .image {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

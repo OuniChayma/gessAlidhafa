@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<br><br>
+<div class="container">
+  <h1>مقدار استهلاك الماء خلال السنة</h1>
+  <div class="description">
+    <h2>الماء المستخدم في الزراعة المختلفة</h2>
+  </div>
+  <div class="water-usage">
+    <div class="month" *ngFor="let usage of filteredWaterUsage">
+      <h3>
+        <i class="fas fa-tint"></i> {{ usage.month }}
+      </h3>
+      <div class="progress-container">
+        <div
+          class="progress"
+          [style.width.%]="usage.percentage"
+          [style.backgroundColor]="getProgressColor(usage.percentage)">
+        </div>
+      </div>
+      <p>{{ usage.percentage }}% من الهدف الشهري</p>
+      <p class="status">{{ getStatusMessage(usage.percentage) }}</p>
+      <div *ngIf="usage.month" class="tooltip">
+        <p>{{ usage.usage }} لتر من الماء تم استهلاكه.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <h2>ملخص الاستهلاك السنوي</h2>
+    <div class="total-usage">
+      <p><strong>إجمالي الاستهلاك:</strong> {{ totalUsage }} لتر</p>
+      <p><strong>النسبة الإجمالية:</strong> {{ getTotalPercentage() }}%</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,152 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #eaeaea;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard {
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  background-color: #2E8B57;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 25px 0;
+  
+}
+
+.stat-card {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card p {
+  margin: 10px 0;
+  color: #888;
+  font-size: 16px;
+}
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+#debt-icon-1 {
+  background-image: url('ouma.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px; 
+  height: 50px; 
+}
+
+#debt-icon-2 {
+  background-image: url('bd.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px; 
+  height: 50px; 
+}
+
+#debt-icon-3 {
+  background-image: url('OIP.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px; 
+  height: 50px; 
+}
+
+
+.icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 15px;
+  background-color: #888;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+ 
+}
+
+.meters {
+  margin-top: 40px;
+}
+
+.meters h4 {
+  text-align: center;
+  color: black;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background-color:#9DC183;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  color:black;
+}
+
+table th {
+  background-color: #9DC183;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #9DC183;
+}
+
+table tr:hover {
+  background-color: white;
+  cursor: pointer;
+}

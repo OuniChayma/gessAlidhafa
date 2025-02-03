@@ -1,0 +1,132 @@
+<app-nav-bar></app-nav-bar>
+<br><br><br><br>
+
+<div class="form-container">
+  <h2>مطلب ترشح </h2>
+
+  <div class="instructions">
+    <p><strong>شروط الترشح:</strong></p>
+    <ul>
+      <li>يجب أن يكون المتقدم عضواً في القطاع الفلاحي.</li>
+      <li>يجب تقديم البيانات بدقة وصحة تامة.</li>
+      <li>يجب احترام النظام الداخلي.</li>
+    </ul>
+
+    <p><strong>التعليمات:</strong></p>
+    <ul>
+      <li>تأكد من صحة البريد الإلكتروني ورقم الهاتف قبل تقديم الطلب.</li>
+      <li>يرجى ملء جميع الحقول المطلوبة.</li>
+    </ul>
+  </div>
+
+
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <label for="fullName">الاسم الكامل:</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        class="form-control"
+        required
+        (input)="updateField('fullName', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="idNumber">رقم بطاقة التعريف الوطنية:</label>
+      <input
+        type="text"
+        id="idNumber"
+        name="idNumber"
+        class="form-control"
+        required
+        (input)="updateField('idNumber', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">تاريخ الميلاد:</label>
+      <input
+        type="date"
+        id="birthDate"
+        name="birthDate"
+        class="form-control"
+        required
+        (change)="updateField('birthDate', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address">العنوان الكامل:</label>
+      <textarea
+        id="address"
+        name="address"
+        class="form-control"
+        required
+        (input)="updateField('address', $event)"
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="activity">النشاط الفلاحي:</label>
+      <input
+        type="text"
+        id="activity"
+        name="activity"
+        class="form-control"
+        required
+        (input)="updateField('activity', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="experience">الخبرة في المجال الفلاحي (بالسنوات):</label>
+      <input
+        type="number"
+        id="experience"
+        name="experience"
+        class="form-control"
+        required
+        (input)="updateField('experience', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">رقم الهاتف:</label>
+      <input
+        type="text"
+        id="phone"
+        name="phone"
+        class="form-control"
+        required
+        (input)="updateField('phone', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">البريد الإلكتروني:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        (input)="updateField('email', $event)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input
+          type="checkbox"
+          name="agreement"
+          required
+          (change)="updateField('agreement', $event)"
+        />
+        أتعهد باحترام النظام الداخلي .
+      </label>
+    </div>
+
+    <button type="submit" class="btn-submit">إرسال الطلب</button>
+  </form>
+</div>

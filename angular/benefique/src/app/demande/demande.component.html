@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+<div class="demande-list-container">
+    <header class="header">
+      <h2>قائمة مطالب الترشح</h2>
+    </header>
+  
+    <section class="search-section">
+      
+      <input
+        type="text"
+        id="search"
+        placeholder="ابحث باستخدام رمز مطلب الانخراط"
+        (input)="onSearchChange()"
+         />
+      <label for="search"> :بحث </label>
+    </section>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>رمز مطلب الانخراط</th>
+          <th>نوع المطلب</th>
+          <th>تاريخ المجلس</th>
+          <th>تاريخ كتابة المطلب</th>
+          <th>النتيجة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let demande of filteredDemandes">
+          <td>{{ demande.code }}</td>
+          <td>{{ demande.type }}</td>
+          <td>{{ demande.councilDate }}</td>
+          <td>{{ demande.requestDate }}</td>
+          <td>{{ demande.result }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+   
+  </div>
+  

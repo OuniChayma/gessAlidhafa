@@ -1,0 +1,46 @@
+<app-nav-bar></app-nav-bar>
+<br><br>
+<div class="dashboard">
+  <header>
+    <h2>مرحبًا  </h2>
+  </header>
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="icon user-icon" id="debt-icon-1"></div>
+      <p>مقدار الماء المستخدم في هذه السنة</p>
+      <h3>م3م</h3>
+    </div>
+    <div class="stat-card">
+      <div class="icon debt-icon" id="debt-icon-2"></div>
+      <p>الديون</p>
+      <h3> دينار50 </h3>
+    </div>
+    <div class="stat-card">
+      <div class="icon monthly-usage-icon" id="debt-icon-3"></div>
+      <p>استهلاك هذا الشهر</p>
+      <h3> م3</h3>
+    </div>
+  </div>
+  <section class="meters">
+    <h4>استهلاك العدادات</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>الرقم القديم</th>
+          <th>العدد الجديد</th>
+          <th>تاريخ التسجيل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let meter of meters">
+          <td>{{ meter.oldNumber }}</td>
+          <td>{{ meter.newNumber }}</td>
+          <td>{{ meter.date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+
+  

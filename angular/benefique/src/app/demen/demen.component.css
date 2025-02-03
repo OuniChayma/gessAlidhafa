@@ -1,0 +1,161 @@
+/* تحسينات عامة */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* تحريك النموذج عند الظهور */
+  .form-container {
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 3s ease-in-out;
+  }
+  
+  /* عنوان النموذج */
+  h2 {
+    text-align: center;
+    color: #27ae60;
+    margin-bottom: 20px;
+    font-size: 28px;
+    animation: slideInUp 1s ease-out;
+  }
+  
+  /* التعليمات مع تأثير حركة */
+  .instructions {
+    background-color: #eef9f3;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #333;
+    animation: slideInLeft 1s ease-out;
+  }
+  
+  .instructions p {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .instructions ul {
+    list-style-type: square;
+    margin-left: 20px;
+  }
+  
+  .instructions ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* تحسينات الحقول */
+  .form-group {
+    margin-bottom: 18px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* تأثير الحقول عند التركيز عليها */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="date"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
+    outline: none;
+  }
+  
+  /* تخصيص textarea */
+  textarea {
+    resize: vertical;
+    height: 120px;
+  }
+  
+  /* الزر */
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: bounceIn 0.5s ease-out;
+  }
+  
+  /* تأثير التمرير على الزر */
+  button:hover {
+    background-color: #2ecc71;
+    transform: scale(1.05);
+  }
+  
+  /* عند تعطيل الزر */
+  button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  /* الأنيميشن */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInUp {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

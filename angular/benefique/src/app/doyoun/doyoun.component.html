@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<div class="water-debts-container">
+  <header class="header">
+    <h2>الديون</h2>
+  </header>
+
+  <section class="debts-section">
+    <h3>الديون المستحقة</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>المبلغ المستحق (دينار)</th>
+          <th>تاريخ الاستحقاق</th>
+          <th>حالة الدفع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let debt of debts">
+          <td>{{ debt.amount }}</td>
+          <td>{{ debt.dueDate }}</td>
+          <td>{{ debt.paid ? 'مدفوع' : 'غير مدفوعة' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="total-debt-section">
+    <div class="total-debt-card">
+      <button class="total-debt-button" (click)="handleClick()">
+        <h3>إجمالي الديون</h3>
+        <p>عرض التفاصيل</p>
+      </button>
+    </div>
+  </section>
+</div>
