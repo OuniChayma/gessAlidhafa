@@ -1,0 +1,96 @@
+<!-- Back Button -->
+<div class="mt-3 text-end">
+    <a href="home.html" class="btn btn-secondary">رجوع</a>
+</div>
+
+<!-- Page Title -->
+<h1 class="header">فواتير بيع الماء</h1>
+
+<!-- Search Field -->
+<div class="mb-3">
+    <input type="text" dir="rtl" id="searchInput" class="form-control" placeholder="ابحث هنا..." aria-label="Search" onkeyup="filterTable()">
+</div>
+
+<!-- Button to Add New Operation -->
+<div class="text-end mb-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#operationModal">
+        إضافة عملة
+    </button>
+</div>
+
+<!-- Data Table -->
+<table class="table table-striped table-bordered text-end" dir="rtl">
+    <thead class="table-dark">
+        <tr>
+            <th>الرمز</th>
+            <th>الشهر/التاريخ</th>
+            <th>رقم الفاتورة</th>
+            <th>إسم ولقب المنتفع</th>
+            <th>المبلغ المطلوب</th>
+            <th>الملف المرفق</th>
+            <th>الإجراءات</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <tr>
+            <td>1</td>
+            <td>2024-12-01</td>
+            <td>500</td>
+            <td>صابر غريس</td>
+            <td>100</td>
+            <td>
+                <label for="fileInput" class="btn btn-sm btn-outline-secondary">تحميل ملف</label>
+<input type="file" id="fileInput" style="display: none;">
+            </td>            
+            <td class="text-end">
+                <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">حذف</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('fileInput').addEventListener('change', function() {
+        alert("تم اختيار الملف: " + this.files[0].name);
+    });
+</script>
+
+<!-- Add Operation Modal -->
+<div class="modal fade" id="operationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">إضافة عملية</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+            </div>
+            <div class="modal-body">
+                <form id="operationForm">
+                    <div class="mb-3">
+                        <label for="date" class="form-label">الشهر/التاريخ</label>
+                        <input type="date" class="form-control text-end" id="date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="invoiceNumber" class="form-label">رقم الفاتورة</label>
+                        <input type="text" class="form-control text-end" id="invoiceNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label for="beneficiary" class="form-label">إسم ولقب المنتفع</label>
+                        <input type="text" class="form-control text-end" id="beneficiary">
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">المبلغ المطلوب</label>
+                        <input type="number" class="form-control text-end" id="amount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="attachment" class="form-label">الملف المرفق</label>
+                        <input type="file" class="form-control text-end" id="attachment">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                <button type="button" class="btn btn-primary" onclick="addOperation()">إضافة</button>
+            </div>
+        </div>
+    </div>
+</div>
