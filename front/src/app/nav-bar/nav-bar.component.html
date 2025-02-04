@@ -1,0 +1,175 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="bi bi-person-circle"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark text-end" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <h5 class="text-center">NESS de L'Economie Sociale et Solidaire</h5>
+                <br>
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">اللوحة الرئسية <i class="bi bi-house-door-fill"></i></a>
+                    </li>
+                    <hr><h6>الجانب الاداري</h6>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">أعوان التنفيذ <i class="bi bi-people-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">اعداد و تنظيم الجلسات العامة <i class="bi bi-list"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">مسك دفتر محاضر اجتماعات مجلس الدارة  <i class="bi bi-folder"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">قائمة المنتفعين <i class="bi bi-list"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">دفتر الانخراطات  <i class="bi bi-folder"></i></a>
+                    </li>
+                    <hr><h6>الجانب المالي</h6>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">قائمة ديون المنتفعين نحو المجمع <i class="bi bi-list"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">قائمة ديون المجمع نحو المزودين <i class="bi bi-list"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"data-bs-toggle="modal" data-bs-target="#filterModal">دفتر المحاسبة  <i class="bi bi-folder">
+                            
+                          
+                        </i></a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"data-bs-toggle="modal" data-bs-target="#filterModal2">دفتر متابعة االستهالك والفوترة  <i class="bi bi-folder">
+                            
+                        </i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="'/consommation'"> مؤيدات الدخل و الصرف <i class="bi bi-diagram-3-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">متابعة الوضعية الما لية للمجمع <i class="bi bi-bar-chart-line-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">المزانية السنوية <i class="bi bi-wallet-fill"></i></a>
+                    </li>
+                    <hr><h6>الجانب الفني</h6>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#filterModal2">برنامج الضخ اليومي <i class="bi bi-bar-chart-line-fill"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="'/defaut'">الاعطاب <i class="bi bi-exclamation-triangle-fill"></i></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!--modal1-->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-end" dir="rtl">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel">دفتر المحاسبة</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>الرجاء اختيار شهر وسنة صفحة الدفتر المراد عرضها</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="year" class="form-label">السنة:</label>
+                        <select class="form-select text-end" id="year">
+                            <option selected>اختر السنة</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="month" class="form-label">الشهر:</label>
+                        <select class="form-select text-end" id="month">
+                            <option selected>اختر الشهر</option>
+                            <option value="1">جانفي</option>
+                            <option value="2">فيفري</option>
+                            <option value="3">مارس</option>
+                            <option value="4">أفريل</option>
+                            <option value="5">ماي</option>
+                            <option value="6">جوان</option>
+                            <option value="7">جويلية</option>
+                            <option value="8">أوت</option>
+                            <option value="9">سبتمبر</option>
+                            <option value="10">أكتوبر</option>
+                            <option value="11">نوفمبر</option>
+                            <option value="12">ديسمبر</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-start">
+                <button type="button" class="btn btn-primary" [routerLink]="'/compta'">عرض الصفحة</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal2-->
+<div class="modal fade" id="filterModal2" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-end" dir="rtl">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel">الرجاء اختيار سنة وشهر الدفتر</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="consumptionNumber" class="form-label">رقم الاستهلاك</label>
+                        <div class="input-group">
+                            <input type="text" id="consumptionNumber" class="form-control text-end" placeholder="----------">
+                            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-start">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" [routerLink]="'/home'">إلغاء</button>
+                <button type="button" class="btn btn-primary" [routerLink]="'/facture'">متابعة</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal3-->
+<div class="modal fade" id="filterModal3" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content text-end" dir="rtl">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterModalLabel">الرجاء اختيار سنة وشهر الدفتر</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="consumptionNumber" class="form-label">رقم الاستهلاك</label>
+                        <div class="input-group">
+                            <input type="text" id="consumptionNumber" class="form-control text-end" placeholder="----------">
+                            <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-start">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" [routerLink]="'/home'">إلغاء</button>
+                <button type="button" class="btn btn-primary" [routerLink]="'/facture'">متابعة</button>
+            </div>
+        </div>
+    </div>
+</div>

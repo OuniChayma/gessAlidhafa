@@ -1,0 +1,78 @@
+/* General body styling */
+body {
+    direction: rtl;
+    text-align: right;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background for better readability */
+    margin: 20px;
+}
+
+/* Title styling */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 20px;
+}
+
+/* Button group styling */
+/* Button group container for spacing */
+.btn-group-container {
+    margin-bottom: 15px;
+}
+
+/* Button styling (Normal Size) */
+.btn {
+    background-color: blue;
+    color: white;
+    padding: 6px 12px; /* Reduced padding */
+    font-size: 14px; /* Smaller font */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: darkblue;
+}
+/* Search input styling */
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Table styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    text-align: right;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.table thead {
+    background-color: #343a40; /* Dark header */
+    color: white;
+}
+
+/* File download link styling */
+a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

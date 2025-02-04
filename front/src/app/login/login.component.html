@@ -1,0 +1,72 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 text-center m-auto">
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="email" class="form-control mb-3 mt-3 text-end" placeholder="البريد الالكتروني" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" class="form-control mb-3 text-end" placeholder="كلمة العبور" required>
+                </div>
+                <button type="submit" class="btn btn-success form-control">تسجيل دخول</button>
+            </form>
+        </div>
+        
+        <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            const data = { email, password };
+        
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);  // Show success message (e.g., "User created successfully")
+                    
+                    // Redirect to the homepage (adjust the URL as needed)
+                    window.location.href = '/home';  // Or '/' for the root page
+                } else if (data.error) {
+                    alert(data.error);  // Show error if user exists or any other error
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while processing your request.');
+            });
+        });
+        </script>
+        <div class="col-sm-6 text-center m-auto mt-3">
+            <div class="container">
+                <h2 class="text-center"> "مهام المدير الفني"</h2>
+                <p class="text-end">
+                    يتولى المدير الفني التسيير اليومي للمجمع ويباشر وظيفته في حدود السلطات المسندة له من قبل مجلس إدارة المجمع، من أبرز مهامه
+                    <br> إعداد برامج الضخ وتوزيع المياه وضبط برامج عمل أعوان المجمع
+                    <br> تنفيذ قرارات مجلس الإدارة وبرنامج عمل المجمع
+                    <br> مسك الوثائق الإدارية والفنية والمالية الخاصة بالمجمع
+                    <br> إعداد وتنظيم الجلسات العامة والاجتماعات الدورية لمجلس الإدارة وتدوين محاضر الجلسات
+                    <br> حل مشاكل المجمع
+                    <br> مراقبة ومتابعة أعمال مستخدمي المجمع وحثهم على الأداء الجيد ومراقبة سلامة التجهيزات والبيئة المحيطة بالمنشات المائية
+                    <br> التمثيل والاتصال بالهيئات والمؤسسات العمومية والخاصة
+                    <br> تقييم نشاط المجمع
+                    <br> إعداد الميزانية السنوية للمجمع وتحيين قائمات المنخرطين
+                    <br> استخلاص المقابيض مقابل تسليم الوصولات للمنتفعين وصرف الدفوعات المأذون بها من طرف مجلس الإدارة
+                    <br> تسجيل عمليات القبض والصرف على دفتر المحاسبة والاحتفاظ بمؤيداتها
+                    <br> متابعة الوضعية المالية للمجمع وذلك من خلال إعداد كشوفات دورية عن المجمع وتقديم تقارير في الغرض لمجلس إدارة المجمع
+                    <br> إعلام وتحسيس المنتفعين بنشاط المجمع وبحقوقهم وواجباتهم ، وبضرورة الحفاظ على ممتلكات المجمع وبأهمية دفع المستحقات وبأهمية قرارات مجلس الإدارة
+                </p>
+            </div> 
+        </div>
+    </div>
+</div>
