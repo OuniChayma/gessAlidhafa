@@ -42,3 +42,29 @@ th {
 .btn-green {
     background-color: green;
 }
+
+
+.modal-dialog {
+    max-width: 600px; /* Adjust modal width */
+  }
+  
+  .modal-content {
+    max-height: 80vh; /* Prevent the modal from becoming too large */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-body {
+    max-height: 60vh; /* Limit the height of the modal body */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .modal-body {
+    max-height: 400px; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrollbar */
+    padding-right: 15px; /* Prevent content from being hidden behind the scrollbar */
+  }
+  

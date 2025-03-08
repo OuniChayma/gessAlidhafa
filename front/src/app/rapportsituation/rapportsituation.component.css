@@ -2,18 +2,49 @@
 body {
     direction: rtl;
     text-align: right;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Light background for better readability */
-    margin: 20px;
+    
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    
 }
 
-/* Title styling */
-h1 {
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.org-info {
+    text-align: right;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+.title {
     text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    color: red;
+    color: #414584;
+    font-size: 24px;
+    margin: 30px 0;
+}
+.period {
+    text-align: center;
     margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: right;
+}
+th {
+    background-color: #f9f9f9;
+}
+.header-row {
+    background-color: #f9f9f9;
+    font-weight: bold;
 }
 
 /* Button group styling */
@@ -38,33 +69,11 @@ h1 {
     background-color: darkblue;
 }
 /* Search input styling */
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
-/* Table styling */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    margin-top: 20px;
-}
 
-.table th,
-.table td {
-    text-align: right;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
 
-.table thead {
-    background-color: #343a40; /* Dark header */
-    color: white;
-}
+
+
 
 /* File download link styling */
 a {

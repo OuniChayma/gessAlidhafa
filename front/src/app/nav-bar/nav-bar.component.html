@@ -50,10 +50,10 @@
                         </i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="'/consommation'"> مؤيدات الدخل و الصرف <i class="bi bi-diagram-3-fill"></i></a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#waterBillModal"> مؤيدات الدخل و الصرف <i class="bi bi-diagram-3-fill"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">متابعة الوضعية الما لية للمجمع <i class="bi bi-bar-chart-line-fill"></i></a>
+                        <a class="nav-link" href="#" [routerLink]="'/situationfinanciere'">متابعة الوضعية الما لية للمجمع <i class="bi bi-bar-chart-line-fill"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">المزانية السنوية <i class="bi bi-wallet-fill"></i></a>
@@ -134,7 +134,7 @@
                     <div class="mb-3">
                         <label for="consumptionNumber" class="form-label">رقم الاستهلاك</label>
                         <div class="input-group">
-                            <input type="text" id="consumptionNumber" class="form-control text-end" placeholder="----------">
+                            <input type="date" id="consumptionNumber" class="form-control text-end" placeholder="YYYY-MM-DD">
                             <span class="input-group-text"><i class="bi bi-calendar"></i></span>
                         </div>
                     </div>
@@ -173,3 +173,45 @@
         </div>
     </div>
 </div>
+<!-- Modal 4 - Enhanced Water Bill Modal -->
+<div class="modal fade" id="waterBillModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true" dir="rtl">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h5 class="modal-title fw-bold" id="modalTitle">القائمة</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <div class="row g-3">
+            <div class="col-12">
+              <button class="btn btn-light btn-lg w-100 rounded-3 py-3 shadow-sm fw-bold d-flex align-items-center justify-content-center" [routerLink]="'/consommation'">
+                <i class="bi bi-droplet-fill me-2"></i>
+                فواتير بيع الماء
+              </button>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-light btn-lg w-100 rounded-3 py-3 shadow-sm fw-bold d-flex align-items-center justify-content-center" [routerLink]="'/autrefacture'">
+                <i class="bi bi-file-text-fill me-2"></i>
+                فواتير اخرى
+              </button>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-light btn-lg w-100 rounded-3 py-3 shadow-sm fw-bold d-flex align-items-center justify-content-center" [routerLink]="'/recuventeeau'">
+                <i class="bi bi-receipt me-2"></i>
+                وصولات بيع الماء
+              </button>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-light btn-lg w-100 rounded-3 py-3 shadow-sm fw-bold d-flex align-items-center justify-content-center" [routerLink]="'/autrerecueau'">
+                <i class="bi bi-journal-check me-2"></i>
+                وصولات اخرى
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-top-0 justify-content-center pb-4">
+          <button type="button" class="btn btn-primary px-4 py-2 rounded-3" data-bs-dismiss="modal">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>

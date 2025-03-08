@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const BillSchema = new mongoose.Schema({
     date: {
-        type: Date,  // ✅ FIXED: Changed from `date` to `Date`
+        type: Date,  
         required: true
     },
     invoiceNumber: {
         type: String,
         required: true,
-        unique: true  // ✅ Keep unique only for invoiceNumber
+        unique: true  
     },
     beneficiary: {
         type: String,

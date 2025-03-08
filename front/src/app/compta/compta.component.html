@@ -15,6 +15,7 @@
             <button class="btn"[routerLink]="'/home'">رجوع</button>
         </div>
         <div class="header">دفتر المحاسبة</div>
+        <p class="text-end">مجمع التنمية في قطاع الفلاحة و الصيد البحري      ...........................</p>
           <!-- Tableau -->
     <table class="table table-bordered">
         <thead>
@@ -850,6 +851,55 @@
                 <td>0</td>
                 <td>0</td>
             </tr>
+            <tr>
+                <td rowspan="2" colspan="16">
+                    (5)=(1)-(2)+(6)=(3)-(4)<br>(7)=(5)+(6)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">الرصيد الجديد</td>
+                <td colspan="2">0</td>
+                <td colspan="2">0</td>
+            </tr>
+            <tr>
+                <td colspan="2">الرصيد الجديد</td>
+                <td colspan="2">0</td>
+                <td colspan="2">0</td>
+            </tr>
+            <tr>
+                <td colspan="4">     	<strong>مجموع العمليات حتى متوفى الشهر السابق	</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4">        <strong>مجموع العمليات خلال الشهر	</strong>		</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+                    
+                
+
+                
         </table>
     </div>
 </body>
@@ -857,27 +907,27 @@
 
 <!-- Modal -->
 <div class="modal fade" id="financeModal" tabindex="-1" aria-labelledby="financeModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
       <div class="modal-content">
-          <div class="modal-header" dir="rtl">
-              <h3 class="modal-title" id="financeModalLabel" dir="rtl">إضافة عملية مالية</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-          </div>
-          <div class="modal-body" dir="rtl">
-              <form>
-                <div class="mb-3" dir="rtl">
-                  <div class="row">
-                      <div class="col">
-                          <label for="month" class="form-label">الشهر</label>
-                          <input type="text" class="form-control" id="month" placeholder="الشهر">
-                      </div>
-                      <div class="col">
-                          <label for="year" class="form-label">السنة</label>
-                          <input type="text" class="form-control" id="year" placeholder="السنة">
-                      </div>
-                  </div>
-              </div>
-              <div class="mb-3" dir="rtl">
+        
+        <!-- Modal Header (Fixed) -->
+        <div class="modal-header" dir="rtl">
+          <h3 class="modal-title" id="financeModalLabel">إضافة عملية مالية</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+        </div>
+  
+        <!-- Modal Body (Scrollable) -->
+        <div class="modal-body">
+          <form dir="rtl">
+            <div class="mb-3">
+              <label for="month" class="form-label">الشهر</label>
+              <input type="text" class="form-control" id="month" placeholder="الشهر">
+            </div>
+            <div class="mb-3">
+              <label for="year" class="form-label">السنة</label>
+              <input type="text" class="form-control" id="year" placeholder="السنة">
+            </div>
+            <div class="mb-3" dir="rtl">
                 <div class="row">
                     <div class="col">
                         <label for="currency" class="form-label">العملة</label>
@@ -997,13 +1047,18 @@
                 
 
               </div>
-              </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-success">إضافة</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-          </div>
+          
+            <!-- Add your remaining form fields here -->
+          </form>
+        </div>
+  
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+            <button type="button" class="btn btn-primary" onclick="addOperation()">إضافة</button>
+        </div>
+  
       </div>
+    </div>
   </div>
-</div>
+  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
